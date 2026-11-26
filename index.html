@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ghosh Consumer Solution Pvt Ltd - Electronics, Fridge & Accessories | Purba Bardhaman</title>
+<meta name="description" content="Ghosh Consumer Solution Pvt Ltd - Best Electronics, Fridge, AC, TV, Washing Machine & Accessories in Purba Bardhaman. Free Delivery, Easy EMI.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
+body{background:#f4f6f9;color:#111}
+header{background:#0b1d3a;color:#fff;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+.logo{font-size:22px;font-weight:800;line-height:1.1} .logo span{color:#ffcc00} .logo small{font-size:11px;font-weight:400;display:block}
+nav a{color:#fff;text-decoration:none;margin:0 12px;font-weight:600}
+.cart-btn{background:#ffcc00;border:none;padding:10px 18px;border-radius:20px;font-weight:700;cursor:pointer}
+.hero{background:linear-gradient(90deg,#0b1d3a,#1e4a9a);color:#fff;padding:50px 20px;text-align:center}
+.hero h1{font-size:42px} .hero p{margin:12px 0 20px;font-size:18px}
+.hero button{background:#ffcc00;border:none;padding:13px 28px;border-radius:30px;font-weight:800;font-size:16px;cursor:pointer;margin:5px}
+.categories{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:20px}
+.categories button{padding:10px 20px;border:1px solid #ddd;background:#fff;border-radius:20px;cursor:pointer;font-weight:600}
+.categories button.active{background:#0b1d3a;color:#fff}
+.products{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;padding:0 20px 30px;max-width:1200px;margin:auto}
+.card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.08);text-align:center;padding-bottom:16px}
+.card img{width:100%;height:200px;object-fit:cover}
+.card h3{margin:12px 0 4px} .card p{color:#666;font-size:14px;padding:0 10px}
+.price{font-size:20px;font-weight:800;margin:8px 0} .old{color:#999;text-decoration:line-through;font-size:14px}
+.add{background:#0b1d3a;color:#fff;border:none;padding:10px 22px;border-radius:20px;cursor:pointer;font-weight:700}
+.add:hover{background:#ffcc00;color:#111}
+.features{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;background:#fff;padding:25px;margin:10px 20px;border-radius:12px;text-align:center}
+.features div{flex:1;min-width:180px} .features b{font-size:18px}
+footer{background:#0b1d3a;color:#fff;text-align:center;padding:25px;margin-top:20px;line-height:1.7;font-size:14px}
+#cartDrawer{position:fixed;right:-400px;top:0;width:360px;max-width:90%;height:100%;background:#fff;box-shadow:-5px 0 20px rgba(0,0,0,.2);padding:20px;transition:.3s;z-index:99;overflow-y:auto}
+#cartDrawer.open{right:0}
+.cart-item{display:flex;justify-content:space-between;border-bottom:1px solid #eee;padding:10px 0}
+.checkout{background:#25D366;border:none;width:100%;padding:13px;border-radius:10px;font-weight:800;font-size:16px;cursor:pointer;margin-top:15px}
+input,select,textarea{width:100%;padding:11px;margin:8px 0;border:1px solid #ddd;border-radius:8px}
+@media(max-width:600px){.hero h1{font-size:30px} nav{display:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">GHOSH <span>CONSUMER SOLUTION</span><small>PVT LTD • PURBA BARDHAMAN</small></div>
+  <nav><a href="#products">Shop</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+  <button class="cart-btn" onclick="toggleCart()">🛒 Cart (<span id="cartCount">0</span>)</button>
+</header>
+
+<section class="hero">
+  <h1>Electronics, Fridge & Accessories</h1>
+  <p>Best Price in Purba Bardhaman • Free Home Delivery • Easy EMI • 1 Year Warranty</p>
+  <button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop Now →</button>
+  <a href="https://wa.me/918617792032?text=Hello%20Ghosh%20Consumer%20Solution%2C%20I%20want%20to%20enquire%20about%20Fridge"><button>💬 WhatsApp Us</button></a>
+  <p style="margin-top:15px;font-size:15px">📞 Call / WhatsApp: +91 86177 92032 &nbsp; | &nbsp; 📍 Kalna Link Road, Nari More, Purba Bardhaman, WB - 713101</p>
+</section>
+
+<div class="categories">
+  <button class="active" onclick="filterCat('all',this)">All Products</button>
+  <button onclick="filterCat('fridge',this)">Fridge</button>
+  <button onclick="filterCat('tv',this)">TV</button>
+  <button onclick="filterCat('ac',this)">AC & Cooler</button>
+  <button onclick="filterCat('home',this)">Home Appliances</button>
+  <button onclick="filterCat('accessories',this)">Accessories</button>
+</div>
+
+<section class="products" id="products"></section>
+
+<section class="features" id="about">
+  <div><b>🚚 Free Delivery</b><br>Bardhaman & Nearby in 24 Hrs</div>
+  <div><b>💳 Easy EMI</b><br>0% EMI on All Fridge & TV</div>
+  <div><b>🛡️ 1 Year Warranty</b><br>Brand + Ghosh Service Support</div>
+  <div><b>🔄 7 Days Replacement</b><br>No Question Asked</div>
+</section>
+
+<section style="max-width:900px;margin:20px auto;background:#fff;padding:25px;border-radius:12px" id="contact">
+  <h2>Order / Enquiry Form</h2>
+  <p style="font-size:14px;color:#555">Fill this form, we will call you back in 30 Minutes.</p>
+  <input id="custName" placeholder="Your Full Name *">
+  <input id="custPhone" placeholder="Phone / WhatsApp Number *">
+  <select id="custCity"><option>Purba Bardhaman</option><option>Burdwan Sadar</option><option>Kalna</option><option>Katwa</option><option>Other - West Bengal</option></select>
+  <textarea id="custMsg" placeholder="Which product do you want? e.g. Double Door Fridge 320L"></textarea>
+  <button class="checkout" onclick="placeOrder()">Place Order on WhatsApp</button>
+  <div style="margin-top:20px;font-size:13px;color:#555;line-height:1.8;border-top:1px solid #eee;padding-top:15px">
+    <b>Ghosh Consumer Solution Pvt Ltd</b><br>
+    Kalna Link Road, Nari More, Purba Bardhaman, West Bengal - 713101<br>
+    CIN: U46520WB2024PTC270038 | GSTIN: 19AALCG1954D1ZJ<br>
+    Trade Licence No: 3389 | Trade: Electronic Goods and Accessories<br>
+    Director: Biswajit Ghosh | Phone: +91 86177 92032<br>
+    Secure Payment via Cashfree / UPI / Cash on Delivery
+  </div>
+</section>
+
+<footer>© 2026 Ghosh Consumer Solution Pvt Ltd | Electronics • Fridge • AC • TV • Accessories<br>Kalna Link Road, Nari More, Purba Bardhaman, WB - 713101</footer>
+
+<div id="cartDrawer">
+  <h2>Your Cart <span style="float:right;cursor:pointer" onclick="toggleCart()">✕</span></h2>
+  <div id="cartItems"></div>
+  <h3 style="margin-top:15px">Total: ₹<span id="cartTotal">0</span></h3>
+  <button class="checkout" onclick="checkoutWhatsApp()">Checkout on WhatsApp</button>
+  <p style="font-size:12px;color:#666;margin-top:8px">Payment via Cashfree / UPI / Cash on Delivery available.</p>
+</div>
+
+<script>
+const products=[
+{id:1,cat:'fridge',name:'Double Door Fridge 320L',desc:'Samsung / LG - 5 Star, Inverter',price:28990,old:37990,img:'https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=600'},
+{id:2,cat:'fridge',name:'Single Door Fridge 190L',desc:'Best for Small Family, 4 Star',price:16490,old:21990,img:'https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?w=600'},
+{id:3,cat:'tv',name:'43" Smart LED TV 4K',desc:'Android TV, Voice Remote, HDR',price:21999,old:32999,img:'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=600'},
+{id:4,cat:'tv',name:'55" Ultra HD Smart TV',desc:'4K, Dolby Vision, 3 HDMI',price:34999,old:49999,img:'https://images.unsplash.com/photo-1593784991095-a205069470b6?w=600'},
+{id:5,cat:'ac',name:'1.5 Ton Split AC',desc:'5 Star Inverter, Copper Coil',price:32990,old:45990,img:'https://images.unsplash.com/photo-1631545806609-24040d63f7e5?w=600'},
+{id:6,cat:'ac',name:'Air Cooler 75L',desc:'Tower Cooler, Remote, Ice Chamber',price:8999,old:12999,img:'https://images.unsplash.com/photo-1580595999860-8f5a52d65c6d?w=600'},
+{id:7,cat:'home',name:'Front Load Washing Machine 8Kg',desc:'Fully Automatic, Steam Wash',price:27490,old:35990,img:'https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=600'},
+{id:8,cat:'home',name:'Microwave Oven 28L',desc:'Convection, Grill + Tandoor',price:9499,old:12999,img:'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=600'},
+{id:9,cat:'accessories',name:'TV Wall Mount + Stabilizer',desc:'Heavy Duty, Free Installation',price:1499,old:2499,img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600'},
+{id:10,cat:'accessories',name:'Fridge Stand + Cover Combo',desc:'Adjustable Stand, Waterproof Cover',price:999,old:1799,img:'https://images.unsplash.com/photo-1585515320310-259814833e62?w=600'},
+{id:11,cat:'accessories',name:'Extension Board 6 Socket',desc:'Surge Protection, 5M Wire',price:799,old:1199,img:'https://images.unsplash.com/photo-1600490722773-35753aea6332?w=600'},
+{id:12,cat:'home',name:'Ceiling Fan 1200mm BLDC',desc:'Energy Saving, Remote Control',price:2999,old:4499,img:'https://images.unsplash.com/photo-1565128939098-2f4e9b5e5e0e?w=600'},
+];
+let cart=[];
+function render(list=products){
+ document.getElementById('products').innerHTML=list.map(p=>`
+ <div class="card">
+  <img src="${p.img}">
+  <h3>${p.name}</h3><p>${p.desc}</p>
+  <div class="price">₹${p.price.toLocaleString('en-IN')} <span class="old">₹${p.old.toLocaleString('en-IN')}</span></div>
+  <button class="add" onclick="addToCart(${p.id})">Add to Cart</button>
+ </div>`).join('');
+}
+function filterCat(c,btn){
+ document.querySelectorAll('.categories button').forEach(b=>b.classList.remove('active')); btn.classList.add('active');
+ render(c==='all'?products:products.filter(p=>p.cat===c));
+}
+function addToCart(id){ cart.push(products.find(p=>p.id===id)); updateCart(); toggleCart(true); }
+function updateCart(){
+ document.getElementById('cartCount').innerText=cart.length;
+ document.getElementById('cartTotal').innerText=cart.reduce((s,p)=>s+p.price,0).toLocaleString('en-IN');
+ document.getElementById('cartItems').innerHTML=cart.length?cart.map((p,i)=>`<div class="cart-item"><span>${p.name}</span><b>₹${p.price.toLocaleString('en-IN')} <span style="color:red;cursor:pointer" onclick="cart.splice(${i},1);updateCart()">✕</span></b></div>`).join(''):'<p>Cart is empty</p>';
+}
+function toggleCart(open){ let d=document.getElementById('cartDrawer'); if(open!==undefined){ if(open) d.classList.add('open'); else d.classList.remove('open'); } else d.classList.toggle('open'); }
+function checkoutWhatsApp(){
+ if(!cart.length) return alert('Cart is empty');
+ let msg='Hello Ghosh Consumer Solution, I want to order:%0A'+cart.map(p=>'- '+p.name+' - Rs.'+p.price).join('%0A')+'%0A Total: Rs.'+cart.reduce((s,p)=>s+p.price,0);
+ window.open('https://wa.me/918617792032?text='+msg,'_blank');
+}
+function placeOrder(){
+ let n=document.getElementById('custName').value, ph=document.getElementById('custPhone').value, m=document.getElementById('custMsg').value;
+ if(!n||!ph) return alert('Please enter Name & Phone');
+ window.open('https://wa.me/918617792032?text=New Enquiry - Name:'+n+' Phone:'+ph+' Message:'+m,'_blank');
+}
+render(); updateCart();
+</script>
+</body>
+</html>
