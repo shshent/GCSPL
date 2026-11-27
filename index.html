@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ghosh Consumer Solution Pvt Ltd - Electronics, Fridge & Accessories | Purba Bardhaman</title>
 <meta name="description" content="Ghosh Consumer Solution Pvt Ltd - Best Electronics, Fridge, AC, TV, Washing Machine & Accessories in Purba Bardhaman. Free Delivery, Easy EMI.">
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
 body{background:#f4f6f9;color:#111}
@@ -24,14 +25,16 @@ nav a{color:#fff;text-decoration:none;margin:0 12px;font-weight:600}
 .card h3{margin:12px 0 4px} .card p{color:#666;font-size:14px;padding:0 10px}
 .price{font-size:20px;font-weight:800;margin:8px 0} .old{color:#999;text-decoration:line-through;font-size:14px}
 .add{background:#0b1d3a;color:#fff;border:none;padding:10px 22px;border-radius:20px;cursor:pointer;font-weight:700}
-.add:hover{background:#ffcc00;color:#111}
+.pay-btn{background:#2b72ff;color:#fff;border:none;padding:10px 22px;border-radius:20px;cursor:pointer;font-weight:700;margin-left:5px}
 .features{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;background:#fff;padding:25px;margin:10px 20px;border-radius:12px;text-align:center}
 .features div{flex:1;min-width:180px} .features b{font-size:18px}
 footer{background:#0b1d3a;color:#fff;text-align:center;padding:25px;margin-top:20px;line-height:1.7;font-size:14px}
+footer a{color:#ffcc00;text-decoration:none;margin:0 8px}
 #cartDrawer{position:fixed;right:-400px;top:0;width:360px;max-width:90%;height:100%;background:#fff;box-shadow:-5px 0 20px rgba(0,0,0,.2);padding:20px;transition:.3s;z-index:99;overflow-y:auto}
 #cartDrawer.open{right:0}
 .cart-item{display:flex;justify-content:space-between;border-bottom:1px solid #eee;padding:10px 0}
-.checkout{background:#25D366;border:none;width:100%;padding:13px;border-radius:10px;font-weight:800;font-size:16px;cursor:pointer;margin-top:15px}
+.checkout{background:#2b72ff;border:none;width:100%;padding:13px;border-radius:10px;font-weight:800;font-size:16px;cursor:pointer;margin-top:15px;color:#fff}
+.wa-btn{background:#25D366;border:none;width:100%;padding:13px;border-radius:10px;font-weight:800;font-size:16px;cursor:pointer;margin-top:10px}
 input,select,textarea{width:100%;padding:11px;margin:8px 0;border:1px solid #ddd;border-radius:8px}
 @media(max-width:600px){.hero h1{font-size:30px} nav{display:none}}
 </style>
@@ -48,7 +51,7 @@ input,select,textarea{width:100%;padding:11px;margin:8px 0;border:1px solid #ddd
   <h1>Electronics, Fridge & Accessories</h1>
   <p>Best Price in Purba Bardhaman • Free Home Delivery • Easy EMI • 1 Year Warranty</p>
   <button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop Now →</button>
-  <a href="https://wa.me/918617792032?text=Hello%20Ghosh%20Consumer%20Solution%2C%20I%20want%20to%20enquire%20about%20Fridge"><button>💬 WhatsApp Us</button></a>
+  <a href="https://wa.me/918617792032?text=Hello%20Ghosh%20Consumer%20Solution"><button>💬 WhatsApp Us</button></a>
   <p style="margin-top:15px;font-size:15px">📞 Call / WhatsApp: +91 86177 92032 &nbsp; | &nbsp; 📍 Kalna Link Road, Nari More, Purba Bardhaman, WB - 713101</p>
 </section>
 
@@ -72,7 +75,6 @@ input,select,textarea{width:100%;padding:11px;margin:8px 0;border:1px solid #ddd
 
 <section style="max-width:900px;margin:20px auto;background:#fff;padding:25px;border-radius:12px" id="contact">
   <h2>Order / Enquiry Form</h2>
-  <p style="font-size:14px;color:#555">Fill this form, we will call you back in 30 Minutes.</p>
   <input id="custName" placeholder="Your Full Name *">
   <input id="custPhone" placeholder="Phone / WhatsApp Number *">
   <select id="custCity"><option>Purba Bardhaman</option><option>Burdwan Sadar</option><option>Kalna</option><option>Katwa</option><option>Other - West Bengal</option></select>
@@ -83,19 +85,26 @@ input,select,textarea{width:100%;padding:11px;margin:8px 0;border:1px solid #ddd
     Kalna Link Road, Nari More, Purba Bardhaman, West Bengal - 713101<br>
     CIN: U46520WB2024PTC270038 | GSTIN: 19AALCG1954D1ZJ<br>
     Trade Licence No: 3389 | Trade: Electronic Goods and Accessories<br>
-    Director: Biswajit Ghosh | Phone: +91 86177 92032<br>
-    Secure Payment via Cashfree / UPI / Cash on Delivery
+    Phone: +91 86177 92032<br>
+    Secure Payment via Razorpay / UPI / Card / Cash on Delivery
   </div>
 </section>
 
-<footer>© 2026 Ghosh Consumer Solution Pvt Ltd | Electronics • Fridge • AC • TV • Accessories<br>Kalna Link Road, Nari More, Purba Bardhaman, WB - 713101</footer>
+<footer>© 2026 Ghosh Consumer Solution Pvt Ltd | Electronics • Fridge • AC • TV • Accessories<br>Kalna Link Road, Nari More, Purba Bardhaman, WB - 713101<br>
+<p style="margin-top:10px">
+<a href="return-refund.html">Return & Refund</a> |
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="terms.html">Terms & Conditions</a>
+</p>
+</footer>
 
 <div id="cartDrawer">
   <h2>Your Cart <span style="float:right;cursor:pointer" onclick="toggleCart()">✕</span></h2>
   <div id="cartItems"></div>
   <h3 style="margin-top:15px">Total: ₹<span id="cartTotal">0</span></h3>
-  <button class="checkout" onclick="checkoutWhatsApp()">Checkout on WhatsApp</button>
-  <p style="font-size:12px;color:#666;margin-top:8px">Payment via Cashfree / UPI / Cash on Delivery available.</p>
+  <button class="checkout" onclick="payCart()">💳 Pay Now with Razorpay</button>
+  <button class="wa-btn" onclick="checkoutWhatsApp()">Order on WhatsApp / COD</button>
+  <p style="font-size:12px;color:#666;margin-top:8px">Payment via Razorpay Secure - UPI / Card / Net Banking. COD also available.</p>
 </div>
 
 <script>
@@ -121,6 +130,7 @@ function render(list=products){
   <h3>${p.name}</h3><p>${p.desc}</p>
   <div class="price">₹${p.price.toLocaleString('en-IN')} <span class="old">₹${p.old.toLocaleString('en-IN')}</span></div>
   <button class="add" onclick="addToCart(${p.id})">Add to Cart</button>
+  <button class="pay-btn" onclick="payNow(${p.price}, '${p.name}')">Pay Now</button>
  </div>`).join('');
 }
 function filterCat(c,btn){
@@ -136,7 +146,7 @@ function updateCart(){
 function toggleCart(open){ let d=document.getElementById('cartDrawer'); if(open!==undefined){ if(open) d.classList.add('open'); else d.classList.remove('open'); } else d.classList.toggle('open'); }
 function checkoutWhatsApp(){
  if(!cart.length) return alert('Cart is empty');
- let msg='Hello Ghosh Consumer Solution, I want to order:%0A'+cart.map(p=>'- '+p.name+' - Rs.'+p.price).join('%0A')+'%0A Total: Rs.'+cart.reduce((s,p)=>s+p.price,0);
+ let msg='Hello Ghosh Consumer Solution, I want to order (COD):%0A'+cart.map(p=>'- '+p.name+' - Rs.'+p.price).join('%0A')+'%0A Total: Rs.'+cart.reduce((s,p)=>s+p.price,0);
  window.open('https://wa.me/918617792032?text='+msg,'_blank');
 }
 function placeOrder(){
@@ -144,15 +154,30 @@ function placeOrder(){
  if(!n||!ph) return alert('Please enter Name & Phone');
  window.open('https://wa.me/918617792032?text=New Enquiry - Name:'+n+' Phone:'+ph+' Message:'+m,'_blank');
 }
+function payNow(amount, name){
+  var options = {
+    "key": "rzp_live_U5Ck2Zdr8CxIkf",
+    "amount": amount * 100,
+    "currency": "INR",
+    "name": "Ghosh Consumer Solution Pvt Ltd",
+    "description": name,
+    "handler": function(response){
+      alert("Payment Successful! ID: " + response.razorpay_payment_id + " - Please send screenshot on WhatsApp");
+      window.open("https://wa.me/918617792032?text=Payment Done - " + name + " - Amount: Rs." + amount + " - Payment ID: " + response.razorpay_payment_id, '_blank');
+    },
+    "prefill": { "contact": "8617792032" },
+    "theme": { "color": "#0b1d3a" }
+  };
+  var rzp = new Razorpay(options);
+  rzp.open();
+}
+function payCart(){
+  if(!cart.length) return alert('Cart is empty');
+  let total = cart.reduce((s,p)=>s+p.price,0);
+  let names = cart.map(p=>p.name).join(', ');
+  payNow(total, "Cart Order - " + names);
+}
 render(); updateCart();
 </script>
 </body>
 </html>
-<p style="margin-top:10px">
-<a href="return-refund.html" style="color:#ffcc00">Return & Refund</a> |
-<a href="privacy-policy.html" style="color:#ffcc00">Privacy Policy</a> |
-<a href="terms.html" style="color:#ffcc00">Terms & Conditions</a>
-</p>
-<a href="return-refund.html">Return & Refund</a> |
-<a href="privacy-policy.html">Privacy Policy</a> |
-<a href="terms.html">Terms</a>
